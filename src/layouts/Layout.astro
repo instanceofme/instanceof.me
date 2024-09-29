@@ -24,29 +24,41 @@ const { title, description } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		font-size: 100%; /* 16px by default */
+		line-height: 1.25; /* 20px */
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
+		/* from Modern Font Stacks */
 		font-family:
+		  Charter,
+		  'Bitstream Charter',
+		  'Sitka Text',
+		  Cambria,
+		  serif;
+	}
+	body {
+	   margin: 1rem;
+	}
+	code, pre, tt {
+		font-family:
+			ui-monospace,
+			'Cascadia Code',
+			'Source Code Pro',
 			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
+			Consolas,
+			'DejaVu Sans Mono',
 			monospace;
 	}
+	h1 { font-size: 4rem; margin: 1.5rem 0; }
+	h2 { font-size: 2rem; }
+	h3 { font-size: 1.5rem; }
+	h4 { font-size: 1rem; }
+	h1, h2, h3, h4, p { margin: 1rem 0; }
 </style>
+<!--style is:global>
+    /* debug */
+    body {
+	   background: repeating-linear-gradient(to bottom, transparent,
+				transparent calc(.5rem - 1px), lightgray .5rem);
+	}
+</style-->
