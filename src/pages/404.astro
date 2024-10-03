@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
 
 <Layout title="Page not found">
@@ -9,3 +8,18 @@ import Card from '../components/Card.astro';
         <p>The page you're looking for wasn't found.<p>
     </main>
 </Layout>
+
+<style>
+	main {
+		margin: 0 auto;
+		width: fit-content;
+	}
+	h1 {
+		padding: 0 1em;
+		border-bottom: 1px solid lightgray;
+	}
+	p {
+		text-align: center;
+	}
+
+</style>

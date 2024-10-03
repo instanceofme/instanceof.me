@@ -1,0 +1,30 @@
+---
+interface Props {
+	icon: string;
+	alt: string;
+	href: string;
+	title: string;
+}
+
+const { icon, alt, href, title } = Astro.props;
+---
+
+<a class="icon-link" href={href} title={title}
+	><img class="icon-link__icon" src={icon} alt={alt} />
+	<span class="icon-link__link"><slot /></span></a>
+
+<style>
+	.icon-link {
+		color: currentColor;
+		text-decoration: none;
+	}
+	.icon-link__icon {
+		height: 1em;
+		vertical-align: middle;
+		transform: scale(1.8);
+	}
+	.icon-link:hover  .icon-link__link,
+	.icon-link:active .icon-link__link {
+		text-decoration: underline;
+	}
+</style>
