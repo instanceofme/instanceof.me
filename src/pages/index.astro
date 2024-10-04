@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import IconLink from '../components/IconLink.astro';
+import { Picture } from 'astro:assets';
+import photo from '../assets/photo.jpg';
 ---
 
 <Layout title="instanceof me" description="">
@@ -39,6 +41,16 @@ import IconLink from '../components/IconLink.astro';
 			</li>
 		</ul>
 	</main>
+	<aside>
+		<Picture
+			class="photo"
+			src={photo}
+			formats={['webp']}
+			alt="Photo"
+			width={photo.width/4}
+			densities={[1, 2, 3, 4]}
+		/>
+	</aside>
 </Layout>
 
 <style>
@@ -60,5 +72,12 @@ import IconLink from '../components/IconLink.astro';
 	}
 	.link-list__item {
 		display: block;
+	}
+
+	.photo {
+		display: block;
+		margin: 0 auto;
+		max-width: 100%;
+		height: auto;
 	}
 </style>
