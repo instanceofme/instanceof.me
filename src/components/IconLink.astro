@@ -9,22 +9,22 @@ interface Props {
 const { icon, alt, href, title } = Astro.props;
 ---
 
-<a class="icon-link" href={href} title={title}
-	><img class="icon-link__icon" src={icon} alt={alt} />
-	<span class="icon-link__link"><slot /></span></a>
+<a href={href} title={title}
+	><img src={icon} alt={alt} />
+	<span><slot /></span></a>
 
 <style>
-	.icon-link {
+	a {
 		color: currentColor;
 		text-decoration: none;
 	}
-	.icon-link__icon {
+	img {
 		height: 1em;
 		vertical-align: middle;
 		transform: scale(1.8);
 	}
-	.icon-link:hover  .icon-link__link,
-	.icon-link:active .icon-link__link {
+	a:hover  span,
+	a:active span {
 		text-decoration: underline;
 	}
 </style>

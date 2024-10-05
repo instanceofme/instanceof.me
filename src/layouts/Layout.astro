@@ -68,10 +68,12 @@ const { title, description } = Astro.props;
 	.small-page {
 		margin: 0 auto;
 		width: fit-content;
+		max-width: min(100%, 50rem);
 	}
 	.small-page h1 {
 		padding: 0 1em;
 		border-bottom: 1px solid lightgray;
+		text-align: center;
 	}
 	.small-page p {
 		text-align: center;
