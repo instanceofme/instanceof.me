@@ -6,8 +6,21 @@ import NavLink from '../components/NavLink.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
-const articles = Object.groupBy(await getCollection('article'),
-	(a: CollectionEntry<'article'>) => a.data.group);
+type Article = CollectionEntry<'article'>;
+type GroupedArticles = {
+	[key: string]: Array<Article>
+};
+
+const articles = (await getCollection('article')).reduce(
+	// Longform / compatible + typesafe version of Object.groupBy(a => a.data.group)
+	(grouped: GroupedArticles, article: Article) => {
+		const group: string = article.data.group;
+		if (!(group in grouped)) {
+			grouped[group] = new Array();
+		}
+		grouped[group].push(article);
+		return grouped;
+	}, {});
 const groups = Object.keys(articles).sort().reverse();
 ---
 
@@ -20,7 +33,7 @@ const groups = Object.keys(articles).sort().reverse();
         {groups.map(group => (
        	<div>
         	<h2>{group}</h2>
-         	{articles[group]?.map(article =>
+         	{articles[group].map(article =>
           	<p>
              	<a href={"/" + article.slug}>{article.data.title}</a>
           	</p>)}
