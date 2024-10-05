@@ -5,7 +5,7 @@ import { Picture } from 'astro:assets';
 import photo from '../assets/photo.jpg';
 ---
 
-<Layout title="instanceof me" description="">
+<Layout title="instanceof me" description=""><div class="wrapper">
 	<main class="small-page">
 		<h1><code>instanceof</code> me</h1>
 		<ul role="list" class="link-list">
@@ -57,9 +57,21 @@ import photo from '../assets/photo.jpg';
 			densities={[1, 2, 3, 4]}
 		/>
 	</aside>
-</Layout>
+</div></Layout>
 
 <style>
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
+	main {
+		margin: 0;
+		height: fit-content;
+	}
+
 	main code {
 		font-weight: normal;
 		color: green;
@@ -73,12 +85,12 @@ import photo from '../assets/photo.jpg';
 		text-align: left;
 		font-size: 2em;
 	}
-	@media (max-width: 35rem) {
+	@media (max-width: 35rem), (max-height: 35rem) {
 		.link-list {
 			font-size: 1.8em;
 		}
 	}
-	@media (max-width: 28rem) {
+	@media (max-width: 28rem), (max-height: 28rem) {
 		.link-list {
 			font-size: 1.6em;
 		}
@@ -97,5 +109,7 @@ import photo from '../assets/photo.jpg';
 		margin: 0 auto;
 		max-width: 100%;
 		height: auto;
+		width: auto;
+		max-height: calc(100vh - 2rem);
 	}
 </style>
