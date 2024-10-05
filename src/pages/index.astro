@@ -39,6 +39,12 @@ import photo from '../assets/photo.jpg';
 					alt="tumblr" title="tumblr: instanceofme"
 					>instanceofme</IconLink>
 			</li>
+			<li class="link-list__item link-list__item--special">
+				<IconLink icon="/icons/archive.svg"
+					href="/archives"
+					alt="Archives"
+					scale={1.2} translate={-0.1}>Archives</IconLink>
+			</li>
 		</ul>
 	</main>
 	<aside>
@@ -68,6 +74,12 @@ import photo from '../assets/photo.jpg';
 	}
 	.link-list__item {
 		display: block;
+	}
+
+	.link-list__item--special {
+		margin-top: .2em;
+		padding-top: .1em;
+		border-top: 1px solid lightgray;
 	}
 
 	.photo {

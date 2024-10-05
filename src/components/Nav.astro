@@ -1,0 +1,32 @@
+---
+interface Props {
+	separator?: string,
+	class?: string
+}
+
+const { separator = "⧽" } = Astro.props;
+const klass = Astro.props.class ?? "";
+---
+
+<nav class={klass}>
+	<ul>
+		<slot />
+	</ul>
+</nav>
+
+<style define:vars={{ separator }}>
+	ul {
+		display: block;
+		padding: 0;
+	}
+	
+	ul > :global(li) {
+		display: inline-block;
+	}
+	ul > :global(li + li) {
+	}
+
+	:global(.small-page) nav {
+		
+	}
+</style>

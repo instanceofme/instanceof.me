@@ -1,0 +1,57 @@
+---
+// Static generation for the whole collection
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {	
+	const articles = await getCollection('article');
+	return articles.map(article => ({
+		params: { slug: article.slug },
+		props: { article }
+	}));
+}
+
+// Render of one page
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import NavLink from "../../components/NavLink.astro";
+const { article } = Astro.props
+const { Content } = await article.render();
+---
+
+<Layout title=article.data.title description=article.data.description>
+	<Nav>
+		<NavLink href="/" after="⧽">Home</NavLink>
+		<NavLink href="/archives" after="⧽">Archives</NavLink>
+	</Nav>
+	<main>
+		<h1>{article.data.title}</h1>
+		<Content />
+	</main>
+	<aside>
+		Published {article.data.date.toISOString().slice(0, 10)}
+	</aside>
+</Layout>
+
+<style>
+	h1 {
+		font-size: 3rem;
+	}
+	@media (max-width: 50rem) {
+		h1 { font-size: 2.5rem; }
+	}
+	@media (max-width: 30rem) {
+		h1 { font-size: 2rem; }
+		h2 { font-size: 1.7rem; }
+	}
+	
+	main :global(code, pre, tt) {
+		color: green;
+	}
+	
+	aside {
+		width: fit-content;
+		padding: .5em .5em 0 0;
+		border-top: 1px solid lightgray;
+		font-style: italic;
+		font-size: .8em;
+	}
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import NavLink from '../../components/NavLink.astro';
+
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+const articles = Object.groupBy(await getCollection('article'),
+	(a: CollectionEntry<'article'>) => a.data.group);
+const groups = Object.keys(articles).sort().reverse();
+---
+
+<Layout title="Page not found">
+	<Nav class="small-page">
+		<NavLink href="/" before="⧼">Home</NavLink>
+	</Nav>
+	<main class="small-page">
+        <h1>Archives</h1>
+        {groups.map(group => (
+       	<div>
+        	<h2>{group}</h2>
+         	{articles[group]?.map(article =>
+          	<p>
+             	<a href={"/archives/" + article.slug}>{article.data.title}</a>
+          	</p>)}
+       	</div>
+        ))}
+    </main>
+</Layout>
+
+<style>
+	.small-page p {
+		text-align: left;
+	}
+</style>

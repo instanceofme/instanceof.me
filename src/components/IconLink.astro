@@ -3,17 +3,19 @@ interface Props {
 	icon: string;
 	alt: string;
 	href: string;
-	title: string;
+	title?: string;
+	scale?: number;
+	translate?: number;
 }
 
-const { icon, alt, href, title } = Astro.props;
+const { icon, alt, href, title, scale = 1.8, translate = -0.05 } = Astro.props;
 ---
 
 <a href={href} title={title}
 	><img src={icon} alt={alt} />
 	<span><slot /></span></a>
 
-<style>
+<style define:vars={{scale, translate}}>
 	a {
 		color: currentColor;
 		text-decoration: none;
@@ -21,7 +23,8 @@ const { icon, alt, href, title } = Astro.props;
 	img {
 		height: 1em;
 		vertical-align: middle;
-		transform: scale(1.8);
+		transform: scale(var(--scale, 1.8))
+			translateY(calc(var(--translate, -.05) * 1em));
 	}
 	a:hover  span,
 	a:active span {

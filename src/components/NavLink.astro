@@ -1,0 +1,33 @@
+---
+interface Props {
+	href: string,
+	title?: string,
+	before?: string,
+	after?: string
+}
+
+const { href, before, after, title = "" } = Astro.props;
+---
+<li><a href={href} title={title}>{
+		before ? <span class="before">{before}</span> : null
+	}<span class="content"><slot /></span>{
+		after ? <span class="after">{after}</span> : null
+	}</a></li>
+
+ <style>
+	a {
+		color: currentColor;
+		text-decoration: none;
+	}
+	a:hover .content, a:active .content {
+		text-decoration: underline;
+	}
+	.before {
+		margin-right: .5em;
+		text-decoration: none;
+	}
+	.after {
+		margin-left: .5em;
+		text-decoration: none;
+	}
+ </style>
