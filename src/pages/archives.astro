@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
-import NavLink from '../../components/NavLink.astro';
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import NavLink from '../components/NavLink.astro';
 
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
@@ -22,7 +22,7 @@ const groups = Object.keys(articles).sort().reverse();
         	<h2>{group}</h2>
          	{articles[group]?.map(article =>
           	<p>
-             	<a href={"/archives/" + article.slug}>{article.data.title}</a>
+             	<a href={"/" + article.slug}>{article.data.title}</a>
           	</p>)}
        	</div>
         ))}

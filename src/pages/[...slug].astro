@@ -10,9 +10,9 @@ export async function getStaticPaths() {
 }
 
 // Render of one page
-import Layout from "../../layouts/Layout.astro";
-import Nav from "../../components/Nav.astro";
-import NavLink from "../../components/NavLink.astro";
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import NavLink from "../components/NavLink.astro";
 const { article } = Astro.props
 const { Content } = await article.render();
 ---
