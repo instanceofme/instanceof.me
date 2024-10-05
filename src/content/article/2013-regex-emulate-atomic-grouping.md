@@ -1,7 +1,7 @@
 ---
 title: "Regex: Emulate Atomic Grouping (and Possessive Quantifiers) with LookAhead"
 group: "2013"
-slug: 2013/regex-emulate-atomic-grouping
+slug: 2013/regex-emulate-atomic-grouping-with-lookahead
 date: 2013-06-05
 ---
 
