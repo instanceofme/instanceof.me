@@ -64,6 +64,11 @@ const { title, description } = Astro.props;
 		h1 { font-size: 2.5rem; }
 		h2 { font-size: 1.8rem; }
 	}
+	@media (max-width: 28rem) {
+		h1 { font-size: 2rem; margin: .8rem 0; }
+		h2 { font-size: 1.6rem; }
+		h3 { font-size: 1.2rem; }
+	}
 
 	.small-page {
 		margin: 0 auto;
@@ -78,12 +83,4 @@ const { title, description } = Astro.props;
 	.small-page p {
 		text-align: center;
 	}
-
 </style>
-<!--style is:global>
-    /* debug */
-    body {
-	   background: repeating-linear-gradient(to bottom, transparent,
-				transparent calc(.5rem - 1px), lightgray .5rem);
-	}
-</style-->
