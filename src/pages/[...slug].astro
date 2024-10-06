@@ -17,7 +17,7 @@ const { article } = Astro.props
 const { Content } = await article.render();
 ---
 
-<Layout title=article.data.title description=article.data.description>
+<Layout title={article.data.title} description={article.data.description}>
 	<Nav>
 		<NavLink href="/" after="⧽">Home</NavLink>
 		<NavLink href="/archives" after="⧽">Archives</NavLink>
