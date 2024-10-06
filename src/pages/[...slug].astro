@@ -27,7 +27,8 @@ const { Content } = await article.render();
 		<Content />
 	</main>
 	<aside>
-		Published {article.data.date.toISOString().slice(0, 10)}
+		{article.data.evergreen ? "Last edited" : "Published"}
+		{article.data.date.toISOString().slice(0, 10)}
 	</aside>
 </Layout>
 

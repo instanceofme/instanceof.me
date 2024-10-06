@@ -6,6 +6,7 @@ const articleCollection = defineCollection({
     title: z.string(),
     group: z.string(),
     date: z.date(),
+    evergreen: z.boolean().optional().default(false),
     description: z.string().optional(),
     tags: z.array(z.string()).optional(),
   }),
