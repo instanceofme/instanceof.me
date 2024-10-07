@@ -1,10 +1,8 @@
 ---
 interface Props {
-	separator?: string,
 	class?: string
 }
 
-const { separator = "⧽" } = Astro.props;
 const klass = Astro.props.class ?? "";
 ---
 
@@ -14,7 +12,7 @@ const klass = Astro.props.class ?? "";
 	</ul>
 </nav>
 
-<style define:vars={{ separator }}>
+<style>
 	ul {
 		display: block;
 		padding: 0;

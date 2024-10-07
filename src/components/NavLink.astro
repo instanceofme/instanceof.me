@@ -22,12 +22,8 @@ const { href, before, after, title = "" } = Astro.props;
 	a:hover .content, a:active .content {
 		text-decoration: underline;
 	}
-	.before {
-		margin-right: .5em;
-		text-decoration: none;
-	}
-	.after {
-		margin-left: .5em;
+	.before, .after {
+		margin: 0 .5em;
 		text-decoration: none;
 	}
  </style>
