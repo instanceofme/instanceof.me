@@ -3,12 +3,14 @@ interface Props {
 	href: string,
 	title?: string,
 	before?: string,
-	after?: string
+	after?: string,
+	back?: boolean,
+	forward?: boolean,
 }
 
-const { href, before, after, title = "" } = Astro.props;
+const { href, before, after, title = "", back = false, forward = false } = Astro.props;
 ---
-<li><a href={href} title={title}>{
+<li><a href={href} title={title} class:list={{back, forward}}>{
 		before ? <span class="before">{before}</span> : null
 	}<span class="content"><slot /></span>{
 		after ? <span class="after">{after}</span> : null
@@ -25,5 +27,23 @@ const { href, before, after, title = "" } = Astro.props;
 	.before, .after {
 		margin: 0 .5em;
 		text-decoration: none;
+	}
+	.back::before,
+	.forward::after {
+		content: " ";
+		display: inline-block;
+		width: .3em;
+		height: .3em;
+		overflow: hidden;
+		margin: 0 .5em 0 .3em;
+
+		border: 1px solid currentColor;
+		border-left: none;
+		border-bottom: none;
+		transform: rotate(45deg) translateY(-.1em);
+	}
+	.back::before {
+		margin: 0 .3em 0 .5em;
+		transform: rotate(-135deg) translateY(.1em);
 	}
  </style>
