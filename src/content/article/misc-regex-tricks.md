@@ -52,7 +52,8 @@ Example usage in JavaScript:
 ```javascript
 const regex = /NotThis|NorThis|(ButThis)/g;
 const matches = [];
-while (const m = re.exec(str)) {
+let m;
+while (m = regex.exec(str)) {
 	if (typeof m[1] === "string") {
 		matches.push(m[1]);
 	}
@@ -63,10 +64,10 @@ Or with a generator function:
 ```javascript
 function* extract(str) {
 	const regex = /NotThis|NorThis|(ButThis)/g;
-	while (const m = re.exec(str)) {
-			if (typeof m[1] === "string") {
-				yield m[1];
-			}
+	let m;
+	while (m = regex.exec(str)) {
+		if (typeof m[1] === "string") {
+			yield m[1];
 		}
 	}	
 }
