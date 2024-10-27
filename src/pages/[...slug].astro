@@ -49,16 +49,30 @@ const { Content } = await article.render();
 		h3 { font-size: 1.2rem; }
 	}
 	
-	main :global(code, pre, tt) {
+	main :global(code, tt) {
 		color: green;
+	}
+	main :global(pre.github-dark > code) {
+		color: lightgray;
+	}
+	main :global(pre.github-dark) {
+		padding: .5rem;
+		font-size: .8em;
+		tab-size: 4;
 	}
 	main :global(dt) {
 		margin-top: 1em;
+	}
+	
+	body {
+		max-width: 50rem;
+		margin: 0 auto;
 	}
 
 	aside {
 		display: inline-block;
 		padding: .5em 1em 0 0;
+		margin-bottom: 1em;
 		border-top: 1px solid lightgray;
 		font-style: italic;
 		font-size: .8em;
