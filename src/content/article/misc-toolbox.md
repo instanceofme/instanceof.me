@@ -23,11 +23,15 @@ evergreen: true
 	<dd><a href="https://astro.build">Astro</a> as my static site generator,
 		pushed to <a href="https://github.com">GitHub</a>
 		and deployed on <a href="https://pages.cloudflare.com">Cloudflare Pages</a></dd>
-	<dd><a href="https://htmx.org">htmx</a> for a simple <abbr title"Single-Page Application">SPA</abbr>&nbsp;;
+	<dd><a href="https://htmx.org">htmx</a> for a simple <abbr title"Single-Page Application">SPA</abbr>;
 		sometimes <a href="https://leanrada.com/htmz/">htmz</a> for even simpler interactions</dd>
 	<dt>Data</dt>
 	<dd><a href="https://www.dataiku.com">Dataiku</a> for any data project</dd>
-	<dd><a href="https://www.postgresql.org">PostgreSQL</a> for full-featured, standalone relational DB</dd>
+	<dd><a href="https://www.postgresql.org">PostgreSQL</a> for a full-featured, standalone relational DB
+		(see caveats from the <a href="https://wiki.postgresql.org/wiki/Don%27t_Do_This"
+		title="PostgreSQL — Don't Do This">doc</a> &amp;
+		<a href="https://challahscript.com/what_i_wish_someone_told_me_about_postgres"
+		title="What I Wish Someone Told Me About Postgres">elsewhere</a>)</dd>
 	<dd><a href="https://www.sqlite.org/">SQLite</a> for a self-contained embedded transactional DB,
 		or <a href="https://duckdb.org">DuckDB</a> if the need is
 		<abbr title="Command Line Interface">CLI</abbr> or analytical</dd>
