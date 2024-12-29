@@ -2,7 +2,7 @@
 title: "Tools I like"
 group: "Misc"
 slug: toolbox
-date: 2024-10-06
+date: 2024-12-29
 evergreen: true
 ---
 
@@ -10,7 +10,7 @@ evergreen: true
 	<dt>Text edition</dt>
 	<dd><a href="https://zed.dev">Zed</a> for code, with vim mode</dd>
 	<dd><a href="https://www.sublimetext.com">Sublime Text</a> for general text files / single-shot</dd>
-	<dd><a href="https://www.vim.org">Vim</a> in the command line</dd>
+	<dd><a href="https://www.vim.org">Vim</a> as my command line <code>$EDITOR</code> </dd>
 	<dt>Typesetting</dt>
 	<dd><a href="https://typst.app">Typst</a> features a nicer syntax than LaTeX</dd>
 	<dt>Command Line</dt>
